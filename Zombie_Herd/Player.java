@@ -23,5 +23,27 @@ public class Player extends Actor
     {
         // Add your action code here.
         resize();
+        movement();
+    }
+    
+    public void movement()
+    {
+        
+        if(Greenfoot.isKeyDown("right") || Greenfoot.isKeyDown("D"))
+        {
+            setLocation(getX()+1, getY()); // right
+        }
+        if(Greenfoot.isKeyDown("left")|| Greenfoot.isKeyDown("A"))
+        {
+            setLocation(getX()-1, getY()); // left
+        }
+        if(Greenfoot.isKeyDown("up")|| Greenfoot.isKeyDown("W"))
+        {
+            setLocation(getX(), getY()-1); // up
+        }
+        if(Greenfoot.isKeyDown("down")|| Greenfoot.isKeyDown("S"))
+        {
+            setLocation(getX(), getY()+1); // down
+        }
     }
 }
