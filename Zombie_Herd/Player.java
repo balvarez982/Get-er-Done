@@ -8,13 +8,11 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Player extends Actor
 {
-    public void resize()
-    {
+    public Player() {
         GreenfootImage image = getImage();
         image.scale(50,50);
         setImage(image);
     }
-    
     /**
      * Act - do whatever the Player wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -22,7 +20,6 @@ public class Player extends Actor
     public void act()
     {
         // Add your action code here.
-        resize();
         movement();
     }
     
@@ -31,19 +28,19 @@ public class Player extends Actor
         
         if(Greenfoot.isKeyDown("right") || Greenfoot.isKeyDown("D"))
         {
-            setLocation(getX()+1, getY()); // right
+            setLocation(getX()+2, getY());// right
         }
         if(Greenfoot.isKeyDown("left")|| Greenfoot.isKeyDown("A"))
         {
-            setLocation(getX()-1, getY()); // left
+            setLocation(getX()-2, getY()); // left
         }
         if(Greenfoot.isKeyDown("up")|| Greenfoot.isKeyDown("W"))
         {
-            setLocation(getX(), getY()-1); // up
+            setLocation(getX(), getY()-2); // up
         }
         if(Greenfoot.isKeyDown("down")|| Greenfoot.isKeyDown("S"))
         {
-            setLocation(getX(), getY()+1); // down
+            setLocation(getX(), getY()+2); // down
         }
     }
 }

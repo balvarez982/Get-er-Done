@@ -8,8 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Zombie extends Actor
 {
-    public void resize()
-    {
+    public Zombie() {
         GreenfootImage image = getImage();
         image.scale(50,50);
         setImage(image);
@@ -21,6 +20,5 @@ public class Zombie extends Actor
     public void act()
     {
         // Add your action code here.
-        resize();
     }
 }
