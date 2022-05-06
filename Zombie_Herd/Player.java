@@ -39,19 +39,19 @@ public class Player extends Actor
         
         if(Greenfoot.isKeyDown("right") || Greenfoot.isKeyDown("D"))
         {
-            setLocation(getX()+1, getY()); // right
+            setLocation(getX()+2, getY()); // right
         }
         if(Greenfoot.isKeyDown("left")|| Greenfoot.isKeyDown("A"))
         {
-            setLocation(getX()-1, getY()); // left
+            setLocation(getX()-2, getY()); // left
         }
         if(Greenfoot.isKeyDown("up")|| Greenfoot.isKeyDown("W"))
         {
-            setLocation(getX(), getY()-1); // up
+            setLocation(getX(), getY()-2); // up
         }
         if(Greenfoot.isKeyDown("down")|| Greenfoot.isKeyDown("S"))
         {
-            setLocation(getX(), getY()+1); // down
+            setLocation(getX(), getY()+2); // down
         }
     }
     
@@ -60,6 +60,7 @@ public class Player extends Actor
         if(getOneIntersectingObject(Zombie.class) != null)
         {
             getWorld().removeObject(this);
+            Greenfoot.setWorld(new LoseWorld());
         }
     }
     public void brainPickup()
