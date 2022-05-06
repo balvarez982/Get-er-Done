@@ -8,13 +8,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Player extends Actor
 {
-<<<<<<< Updated upstream
-    public void resize()
-    {
-=======
     public int Score = 0;
+    
     public Player() {
->>>>>>> Stashed changes
         GreenfootImage image = getImage();
         image.scale(50,50);
         setImage(image);
@@ -24,13 +20,11 @@ public class Player extends Actor
      * Act - do whatever the Player wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
+    
     public void act()
     {
         // Add your action code here.
-        resize();
         movement();
-<<<<<<< Updated upstream
-=======
         //death();
         brainPickup();
         
@@ -38,7 +32,6 @@ public class Player extends Actor
         {
             Greenfoot.setWorld(new WinWorld());
         }
->>>>>>> Stashed changes
     }
     
     public void movement()
@@ -62,6 +55,13 @@ public class Player extends Actor
         }
     }
     
+    public void death()
+    {
+        if(getOneIntersectingObject(Zombie.class) != null)
+        {
+            getWorld().removeObject(this);
+        }
+    }
     public void brainPickup()
     {
         if(getOneIntersectingObject(Brain.class) != null)
