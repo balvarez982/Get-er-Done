@@ -8,10 +8,20 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Zombie extends Actor
 {
+    private int wanderTimer;
+    
     public Zombie() {
         GreenfootImage image = getImage();
         image.scale(50,50);
         setImage(image);
+        
+    }
+    
+    private void wander() {
+        wanderTimer = (wanderTimer+1)%180;
+        if(wanderTimer == 0) {
+            move(10);
+        }
     }
     /**
      * Act - do whatever the Zombie wants to do. This method is called whenever
@@ -20,5 +30,6 @@ public class Zombie extends Actor
     public void act()
     {
         // Add your action code here.
+        wander();
     }
 }

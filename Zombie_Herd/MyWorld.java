@@ -18,32 +18,30 @@ public class MyWorld extends World
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(800, 600, 1); 
         
-        addObject(new Player(), 400, 300);
+        addObject(new Player(), 750, 550);
         SpawnZombies();
     }
     
     public void SpawnZombies()
     {
-        //Bottom Row
+        //Bottom Left
         addObject(new Zombie(), 100, 500);
-        addObject(new Zombie(), 300, 550);
-        addObject(new Zombie(), 500, 550);
-        addObject(new Zombie(), 700, 550);
+        addObject(new Zombie(), 125, 500);
+        addObject(new Zombie(), 100, 525);
         
-        //Top Row
+        //Top Left
         addObject(new Zombie(), 100, 50);
-        addObject(new Zombie(), 300, 50);
-        addObject(new Zombie(), 500, 50);
-        addObject(new Zombie(), 700, 50);
+        addObject(new Zombie(), 150, 50);
+        addObject(new Zombie(), 125, 75);
         
-        //Left Collum
-        addObject(new Zombie(),50, 100);
-        addObject(new Zombie(),50, 300);
-        addObject(new Zombie(),50, 500);
+        //Top Right
+        addObject(new Zombie(),750, 50);
+        addObject(new Zombie(),725, 50);
+        addObject(new Zombie(),725, 75);
         
         //Right Collum
-        addObject(new Zombie(),750, 100);
-        addObject(new Zombie(),750, 300);
-        addObject(new Zombie(),750, 500);
+        addObject(new Zombie(),400, 300);
+        addObject(new Zombie(),400, 325);
+        addObject(new Zombie(),425, 275);
     }
 }
