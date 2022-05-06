@@ -20,14 +20,27 @@ public class MyWorld extends World
         
         addObject(new Player(), 750, 550);
         SpawnZombies();
+        SpawnBrains();
     }
     
+    public void SpawnBrains()
+    {
+        addObject(new Brain(), 50, 50);
+        addObject(new Brain(), 50, 550);
+        addObject(new Brain(), 750, 50);
+    }
     public void SpawnZombies()
     {
         //Bottom Left
         addObject(new Zombie(), 100, 500);
+<<<<<<< HEAD
         addObject(new Zombie(), 125, 500);
         addObject(new Zombie(), 100, 525);
+=======
+        addObject(new Zombie(), 300, 550);
+        addObject(new Zombie(), 500, 550);
+        addObject(new Zombie(), 550, 550);
+>>>>>>> 744ce6ae855971db9dcd0711ef4668485dba3a7f
         
         //Top Left
         addObject(new Zombie(), 100, 50);
@@ -40,8 +53,19 @@ public class MyWorld extends World
         addObject(new Zombie(),725, 75);
         
         //Right Collum
+<<<<<<< HEAD
         addObject(new Zombie(),400, 300);
         addObject(new Zombie(),400, 325);
         addObject(new Zombie(),425, 275);
+=======
+        addObject(new Zombie(),300, 300);
+        addObject(new Zombie(),400, 400);
+        addObject(new Zombie(),30, 400);
+        
+        //Middle
+        addObject(new Zombie(),750, 100);
+        addObject(new Zombie(),750, 300);
+        addObject(new Zombie(),550, 500);
+>>>>>>> 744ce6ae855971db9dcd0711ef4668485dba3a7f
     }
 }
