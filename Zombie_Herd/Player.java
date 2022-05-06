@@ -21,6 +21,7 @@ public class Player extends Actor
     {
         // Add your action code here.
         movement();
+        //death();
     }
     
     public void movement()
@@ -41,6 +42,14 @@ public class Player extends Actor
         if(Greenfoot.isKeyDown("down")|| Greenfoot.isKeyDown("S"))
         {
             setLocation(getX(), getY()+2); // down
+        }
+    }
+    
+    public void death()
+    {
+        if(getOneIntersectingObject(Zombie.class) != null)
+        {
+            getWorld().removeObject(this);
         }
     }
 }
