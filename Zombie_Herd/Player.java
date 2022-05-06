@@ -8,8 +8,13 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Player extends Actor
 {
+<<<<<<< Updated upstream
     public void resize()
     {
+=======
+    public int Score = 0;
+    public Player() {
+>>>>>>> Stashed changes
         GreenfootImage image = getImage();
         image.scale(50,50);
         setImage(image);
@@ -24,6 +29,16 @@ public class Player extends Actor
         // Add your action code here.
         resize();
         movement();
+<<<<<<< Updated upstream
+=======
+        //death();
+        brainPickup();
+        
+        if(Score >= 3)
+        {
+            Greenfoot.setWorld(new WinWorld());
+        }
+>>>>>>> Stashed changes
     }
     
     public void movement()
@@ -44,6 +59,15 @@ public class Player extends Actor
         if(Greenfoot.isKeyDown("down")|| Greenfoot.isKeyDown("S"))
         {
             setLocation(getX(), getY()+1); // down
+        }
+    }
+    
+    public void brainPickup()
+    {
+        if(getOneIntersectingObject(Brain.class) != null)
+        {
+            getWorld().removeObject(getOneIntersectingObject(Brain.class));
+            Score += 1;
         }
     }
 }

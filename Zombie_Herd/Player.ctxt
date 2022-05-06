@@ -8,4 +8,12 @@ comment2.target=void\ act()
 comment2.text=\r\n\ Act\ -\ do\ whatever\ the\ Player\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
 comment3.params=
 comment3.target=void\ movement()
+<<<<<<< Updated upstream
 numComments=4
+=======
+comment4.params=
+comment4.target=void\ death()
+comment5.params=
+comment5.target=void\ brainPickup()
+numComments=6
+>>>>>>> Stashed changes
