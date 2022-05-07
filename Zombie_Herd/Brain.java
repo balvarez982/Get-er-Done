@@ -10,7 +10,7 @@ public class Brain extends Actor
 {
     public Brain() {
         GreenfootImage image = getImage();
-        image.scale(50,50);
+        image.scale(30,20);
         setImage(image);
     }
     /**

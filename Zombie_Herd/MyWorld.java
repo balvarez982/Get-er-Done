@@ -48,8 +48,8 @@ public class MyWorld extends World
         
         
         //Middle
-        addObject(new Zombie(),750, 100);
-        addObject(new Zombie(),750, 300);
-        addObject(new Zombie(),550, 500);
+        addObject(new Zombie(),400, 300);
+        addObject(new Zombie(),400, 325);
+        addObject(new Zombie(),425, 300);
     }
 }

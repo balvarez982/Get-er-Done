@@ -8,10 +8,17 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Player extends Actor
 {
+    
+    private GreenfootImage[] images = new GreenfootImage[2];
     public Player() {
         GreenfootImage image = getImage();
         image.scale(50,50);
         setImage(image);
+        
+        images[0] = image;
+        
+        images[1] = new GreenfootImage(images[0]);
+        images[1].mirrorHorizontally();
     }
     /**
      * Act - do whatever the Player wants to do. This method is called whenever
@@ -27,21 +34,29 @@ public class Player extends Actor
     public void movement()
     {
         
-        if(Greenfoot.isKeyDown("right") || Greenfoot.isKeyDown("D"))
+        if(Greenfoot.isKeyDown("D"))
         {
             setLocation(getX()+2, getY());// right
+            setRotation(0);
+            setImage(images[1]);
         }
-        if(Greenfoot.isKeyDown("left")|| Greenfoot.isKeyDown("A"))
+        if(Greenfoot.isKeyDown("A"))
         {
             setLocation(getX()-2, getY()); // left
+            setRotation(0);
+            setImage(images[0]);
         }
-        if(Greenfoot.isKeyDown("up")|| Greenfoot.isKeyDown("W"))
+        if(Greenfoot.isKeyDown("W"))
         {
             setLocation(getX(), getY()-2); // up
+            setRotation(90);
+            setImage(images[0]);
         }
-        if(Greenfoot.isKeyDown("down")|| Greenfoot.isKeyDown("S"))
+        if(Greenfoot.isKeyDown("S"))
         {
             setLocation(getX(), getY()+2); // down
+            setRotation(-90);
+            setImage(images[0]);
         }
     }
     
