@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Player extends Actor
 {
-    
+    private int speed = 3;
     private GreenfootImage[] images = new GreenfootImage[2];
     public Player() {
         GreenfootImage image = getImage();
@@ -36,25 +36,25 @@ public class Player extends Actor
         
         if(Greenfoot.isKeyDown("D"))
         {
-            setLocation(getX()+2, getY());// right
+            setLocation(getX()+speed, getY());// right
             setRotation(0);
             setImage(images[1]);
         }
         if(Greenfoot.isKeyDown("A"))
         {
-            setLocation(getX()-2, getY()); // left
+            setLocation(getX()-speed, getY()); // left
             setRotation(0);
             setImage(images[0]);
         }
         if(Greenfoot.isKeyDown("W"))
         {
-            setLocation(getX(), getY()-2); // up
+            setLocation(getX(), getY()-speed); // up
             setRotation(90);
             setImage(images[0]);
         }
         if(Greenfoot.isKeyDown("S"))
         {
-            setLocation(getX(), getY()+2); // down
+            setLocation(getX(), getY()+speed); // down
             setRotation(-90);
             setImage(images[0]);
         }

@@ -1,4 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.util.List;
 
 /**
  * Write a description of class Zombie here.
@@ -85,13 +86,28 @@ public class Zombie extends Actor
             targetDistance = Greenfoot.getRandomNumber(maxDistance);
         }
     }
-        
+       
+    int test = 0;
+    
+    private void walkTowards() {
+        List<Player> listZom = getObjectsInRange(100, Player.class);
+        if(listZom.size() >= 1) {
+            for(Player z : listZom) {
+                turnTowards(z.getX(), z.getY());
+                move(speed-1);
+            }
+        }
+        else {
+            wander();
+        }
+    }
+    
     /**
      * Act - do whatever the Zombie wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act()
     {
-        wander();
+        walkTowards();
     }
 }
