@@ -24,6 +24,8 @@ public class Zombie extends Actor
     
     private GreenfootImage[] images = new GreenfootImage[2];
     
+    private int hoardState;
+    
     public Zombie() {
         GreenfootImage image = getImage();
         image.scale(50,50);
@@ -86,14 +88,25 @@ public class Zombie extends Actor
             targetDistance = Greenfoot.getRandomNumber(maxDistance);
         }
     }
-       
-    int test = 0;
+    
+    private void hoard(int hoardState) {
+        if(hoardState == 1) {
+            List<Zombie> listZom = getObjectsInRange(100, Zombie.class);
+            for(Zombie z : listZom) {
+                turnTowards(z.getX(),z.getY());
+                move(speed-1);
+            }
+        }
+        else {
+            wander();
+        }
+    }
     
     private void walkTowards() {
-        List<Player> listZom = getObjectsInRange(100, Player.class);
-        if(listZom.size() >= 1) {
-            for(Player z : listZom) {
-                turnTowards(z.getX(), z.getY());
+        List<Player> listPlay = getObjectsInRange(100, Player.class);
+        if(listPlay.size() >= 1) {
+            for(Player p : listPlay) {
+                turnTowards(p.getX(), p.getY());
                 move(speed-1);
             }
         }
