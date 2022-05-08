@@ -17,6 +17,7 @@ public class Zombie extends Actor
     final int maxDistance = 100; 
     final int minPauseTime = 50;
     final int maxPauseTime = 150;
+    final int followRange = 75;
     
     private int direction = 0;
     private int targetDistance = 0;
@@ -31,32 +32,28 @@ public class Zombie extends Actor
         image.scale(50,50);
         setImage(image);
         
-        images[0] = image;
-        images[1] = new GreenfootImage(images[0]);
-        images[1].mirrorHorizontally();
+        //images[0] = image;
+        //images[1] = new GreenfootImage(images[0]);
+        //images[1].mirrorHorizontally();
         
         setState(state);
     }
     
     private void movement() {
-        if (direction == 0) {
+        if (direction == 0) { //right
             setRotation(0);
-            setImage(images[0]);
             setLocation(getX()+speed, getY());
             targetDistance -= speed;
-        } else if (direction == 1) {
+        } else if (direction == 1) { //up
             setRotation(-90);
-            setImage(images[0]);
             setLocation(getX(), getY()-speed);
             targetDistance -= speed;
-        } else if (direction == 2) {
-            setRotation(0);
-            setImage(images[1]);
+        } else if (direction == 2) { //left
+            setRotation(-180);
             setLocation(getX()-speed, getY());
             targetDistance -= speed;
-        } else if (direction == 3) {
+        } else if (direction == 3) { //down
             setRotation(90);
-            setImage(images[0]);
             setLocation(getX(), getY()+speed);
             targetDistance -= speed;
         }
@@ -91,7 +88,7 @@ public class Zombie extends Actor
     
     private void hoard(int hoardState) {
         if(hoardState == 1) {
-            List<Zombie> listZom = getObjectsInRange(100, Zombie.class);
+            List<Zombie> listZom = getObjectsInRange(followRange, Zombie.class);
             for(Zombie z : listZom) {
                 turnTowards(z.getX(),z.getY());
                 move(speed-1);
@@ -107,7 +104,7 @@ public class Zombie extends Actor
         if(listPlay.size() >= 1) {
             for(Player p : listPlay) {
                 turnTowards(p.getX(), p.getY());
-                move(speed-1);
+                move(speed);
             }
         }
         else {

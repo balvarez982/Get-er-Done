@@ -25,31 +25,30 @@ public class MyWorld extends World
     
     public void SpawnBrains()
     {
-        addObject(new Brain(), 50, 50);
-        addObject(new Brain(), 50, 550);
-        addObject(new Brain(), 750, 50);
+        addObject(new Brain(), 20, 20);
+        addObject(new Brain(), 20, 580);
+        addObject(new Brain(), 780, 20);
     }
     public void SpawnZombies()
     {
         //Bottom Left
-        addObject(new Zombie(), 100, 500);
-        addObject(new Zombie(), 125, 500);
-        addObject(new Zombie(), 100, 525);
+        addObject(new Zombie(), 50, 550);
+        addObject(new Zombie(), 30, 475);
+        addObject(new Zombie(), 80, 525);
         
         //Top Left
-        addObject(new Zombie(), 100, 50);
-        addObject(new Zombie(), 150, 50);
-        addObject(new Zombie(), 125, 75);
+        addObject(new Zombie(), 50, 30);
+        addObject(new Zombie(), 20, 100);
+        addObject(new Zombie(), 90, 75);
         
         //Top Right
-        addObject(new Zombie(),750, 50);
-        addObject(new Zombie(),725, 50);
-        addObject(new Zombie(),725, 75);
-        
+        addObject(new Zombie(), 775, 50);
+        addObject(new Zombie(), 725, 20);
+        addObject(new Zombie(), 725, 75);
         
         //Middle
-        addObject(new Zombie(),400, 300);
-        addObject(new Zombie(),400, 325);
-        addObject(new Zombie(),425, 300);
+        addObject(new Zombie(), 400, 350);
+        addObject(new Zombie(), 400, 250);
+        addObject(new Zombie(), 350, 300);
     }
 }
