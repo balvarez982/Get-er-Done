@@ -10,6 +10,7 @@ public class Player extends Actor
 {
     private int speed = 2;
     private GreenfootImage[] images = new GreenfootImage[2];
+    private int Score = 0;
     public Player() {
         GreenfootImage image = getImage();
         image.scale(50,50);
@@ -28,7 +29,12 @@ public class Player extends Actor
     {
         // Add your action code here.
         movement2();
+        brainPickup();
         //death();
+        if(Score >= 3)
+        {
+            Greenfoot.setWorld(new WinWorld());
+        }
     }
     
     public void movement2() {
@@ -105,6 +111,16 @@ public class Player extends Actor
         if(getOneIntersectingObject(Zombie.class) != null)
         {
             getWorld().removeObject(this);
+            Greenfoot.setWorld(new LoseWorld());
+        }
+    }
+    
+    public void brainPickup()
+    {
+        if(getOneIntersectingObject(Brain.class) != null)
+        {
+            getWorld().removeObject(getOneIntersectingObject(Brain.class));
+            Score += 1;
         }
     }
 }
