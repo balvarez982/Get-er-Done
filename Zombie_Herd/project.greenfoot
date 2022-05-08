@@ -1,6 +1,8 @@
 #Greenfoot project file
 class.Brain.image=Brain2.png
+class.LoseWorld.image=YouLose.jpg
 class.Player.image=survivor-idle_shotgun_0.png
+class.WinWorld.image=YouWin.png
 class.Zombie.image=skeleton-attack_0.png
 dependency1.from=MyWorld
 dependency1.to=Player
