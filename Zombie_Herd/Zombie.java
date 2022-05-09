@@ -112,6 +112,17 @@ public class Zombie extends Actor
         }
     }
     
+    private void flee() {
+        List<Grenade> listGrenade = getObjectsInRange(100, Grenade.class);
+        if(listGrenade.size() >= 1) {
+            for(Grenade g : listGrenade) {
+                turnTowards(g.getX(), g.getY());
+                turn(180);
+                move(speed);
+            }
+        }
+    }
+    
     /**
      * Act - do whatever the Zombie wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -119,5 +130,12 @@ public class Zombie extends Actor
     public void act()
     {
         walkTowards();
+        flee();
+
+        if (isTouching(Bullet.class))
+        {
+            removeTouching(Bullet.class);
+            getWorld().removeObject(this);
+        }
     }
 }

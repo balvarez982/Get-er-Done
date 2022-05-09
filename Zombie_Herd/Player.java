@@ -1,4 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.util.List;
 
 /**
  * Write a description of class Player here.
@@ -11,6 +12,10 @@ public class Player extends Actor
     private int speed = 2;
     private GreenfootImage[] images = new GreenfootImage[2];
     private int Score = 0;
+    private boolean spaceKeyDown;  
+    private boolean gKeyDown;
+    private int ableToThrow = 250;
+
     public Player() {
         GreenfootImage image = getImage();
         image.scale(50,50);
@@ -34,6 +39,27 @@ public class Player extends Actor
         if(Score >= 3)
         {
             Greenfoot.setWorld(new WinWorld());
+        }
+        
+        if (spaceKeyDown != Greenfoot.isKeyDown("space")) // detect change in state of space key
+        {
+            spaceKeyDown = ! spaceKeyDown; // tracking state of space key
+            if (spaceKeyDown) shoot();
+        }
+        
+        if (gKeyDown != Greenfoot.isKeyDown("g")) // detect change in state of space key
+        {
+            gKeyDown = ! gKeyDown; // tracking state of space key
+            if (gKeyDown) throwGrenade();
+        }
+        ableToThrow = ableToThrow + 1;
+        if (ableToThrow >= 250) {
+        List<Grenade> listGrenade = getWorld().getObjects(Grenade.class);
+            if(listGrenade.size() >= 1) {
+                for(Grenade g : listGrenade) {
+                    getWorld().removeObject(g);
+                }
+            }
         }
     }
     
@@ -121,6 +147,29 @@ public class Player extends Actor
         {
             getWorld().removeObject(getOneIntersectingObject(Brain.class));
             Score += 1;
+        }
+    }
+    
+    public void shoot()
+    {
+        Bullet bullet = new Bullet();
+        GreenfootImage image = bullet.getImage();
+        image.scale(10, 10);
+        bullet.setImage(image);
+        getWorld().addObject(bullet, getX(), getY());
+        bullet.setRotation(getRotation()); 
+    }
+    
+    public void throwGrenade()
+    {
+        if (ableToThrow >= 250) {
+            Grenade grenade = new Grenade();
+            GreenfootImage image = grenade.getImage();
+            image.scale(40, 40);
+            grenade.setImage(image);
+            getWorld().addObject(grenade, getX(), getY());
+            grenade.setRotation(getRotation());
+            ableToThrow = 0;
         }
     }
 }
