@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.target=Grenade
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ Grenade\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=angle\ power
+comment1.target=Grenade(int,\ int)
+comment2.params=
+comment2.target=void\ rightToss()
+comment3.params=
+comment3.target=void\ leftToss()
+comment4.params=
+comment4.target=void\ toss()
+comment5.params=
+comment5.target=void\ grenadeHit()
+comment6.params=
+comment6.target=void\ act()
+numComments=7
